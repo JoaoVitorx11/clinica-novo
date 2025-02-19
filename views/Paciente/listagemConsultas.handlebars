@@ -1,0 +1,31 @@
+<h1>Listagem de Consultas</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Hora</th>
+            <th>Médico</th>
+            <th>Paciente</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each consultas}}
+            <tr>
+                <td>{{this.data}}</td>
+                <td>{{this.hora}}</td>
+                <td>{{this.medico.nome}}</td>
+                <td>{{this.paciente.nome}}</td>
+                <td>{{this.status}}</td>
+                <td>
+                    <a href="/ADM/editarConsulta/{{this.id}}">Editar</a> | 
+                    <a href="/ADM/apagarConsulta/{{this.id}}">Excluir</a>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<a href="/ADM/cadastroConsulta">Agendar Nova Consulta</a>

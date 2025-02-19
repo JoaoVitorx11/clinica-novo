@@ -1,0 +1,34 @@
+<h1>Editar Consulta</h1>
+.
+<form action="/ADM/atualizarConsulta/{{consulta.id}}" method="POST">
+    <label for="medico_id">Médico:</label>
+    <select name="medico_id" required>
+        {{#each medicos}}
+            <option value="{{this.id}}" {{#if (eq this.id consulta.medico.id)}}selected{{/if}}>{{this.nome}} - {{this.especialidade}}</option>
+        {{/each}}
+    </select>
+
+    <label for="paciente_id">Paciente:</label>
+    <select name="paciente_id" required>
+        {{#each pacientes}}
+            <option value="{{this.id}}" {{#if (eq this.id consulta.paciente.id)}}selected{{/if}}>{{this.nome}}</option>
+        {{/each}}
+    </select>
+
+    <label for="data">Data:</label>
+    <input type="date" name="data" value="{{consulta.data}}" required>
+
+    <label for="hora">Hora:</label>
+    <input type="time" name="hora" value="{{consulta.hora}}" required>
+
+    <label for="status">Status:</label>
+    <select name="status">
+        <option value="Agendada" {{#if (eq consulta.status "Agendada")}}selected{{/if}}>Agendada</option>
+        <option value="Concluída" {{#if (eq consulta.status "Concluída")}}selected{{/if}}>Concluída</option>
+        <option value="Cancelada" {{#if (eq consulta.status "Cancelada")}}selected{{/if}}>Cancelada</option>
+    </select>
+
+    <button type="submit">Atualizar Consulta</button>
+</form>
+
+<a href="/ADM/listagemConsultas">Voltar para a Listagem de Consultas</a>

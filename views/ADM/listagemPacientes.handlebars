@@ -1,0 +1,44 @@
+<h2 class="text-center text-primary">Listagem de Pacientes</h2>
+
+<div class="text-center mt-3">
+    <a href="/ADM/index" class="btn btn-outline-primary">Voltar</a>
+</div>
+
+<table class="table table-striped table-bordered mt-3">
+    <thead class="table-primary">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>CPF</th>
+            <th>Data Nascimento</th>
+            <th colspan="2" class="text-center">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each pacientes}}
+            <tr>
+                <td>{{this.nome}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.telefone}}</td>
+                <td>{{this.cpf}}</td>
+                <td>{{formatDate this.DataNascimento}}</td>
+                <td class="text-center">
+                    <a href="/ADM/editarPaciente/{{this.id}}" class="btn btn-warning btn-sm">Editar</a>
+                </td>
+                <td class="text-center">
+                    <form action="/ADM/apagarPaciente/{{this.id}}" method="POST" onsubmit="return confirm('Tem certeza que deseja apagar este paciente?')">
+                        <button type="submit" class="btn btn-danger btn-sm">Apagar</button>
+                    </form>
+                </td>
+            </tr>
+        {{else}}
+            <tr>
+                <td colspan="7" class="text-center text-muted">Nenhum paciente cadastrado</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+
+

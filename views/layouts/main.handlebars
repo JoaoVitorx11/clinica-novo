@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- Se desejar usar Bootstrap Icons, descomente a linha abaixo -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
+  <style>
+    /* Ajusta o espaçamento para não ficar oculto atrás do header fixo */
+    body {
+      padding-top: 80px; /* Ajuste esse valor conforme a altura do seu header */
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Header fixo com fixed-top -->
+  <header class="fixed-top bg-primary text-white py-3 shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="h3 m-0">Sistema de Cadastro Clínico</h1>
+      <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+         <i class="bi bi-list"></i> Menu
+      </button>
+    </div>
+  </header>
+
+  <!-- Menu Lateral Retrátil (Offcanvas) -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+    <div class="offcanvas-header bg-primary text-white">
+      <h5 class="offcanvas-title" id="offcanvasMenuLabel">Menu</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="nav flex-column">
+        <a href="/ADM/index" class="nav-link text-primary">Início</a>
+        <a href="/ADM/cadastroPaciente" class="nav-link text-primary">Cadastrar Paciente</a>
+        <a href="/ADM/listagemPacientes" class="nav-link text-primary">Listar Pacientes</a>
+        <a href="/ADM/cadastroMedico" class="nav-link text-primary">Cadastrar Médico</a>
+        <a href="/ADM/listagemMedicos" class="nav-link text-primary">Listar Médicos</a>
+        <a href="#" class="nav-link text-primary">Sair</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="container mt-4">
+    {{{body}}}
+  </div>
+
+  <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
